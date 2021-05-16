@@ -1,0 +1,93 @@
+$('#Mfirst_page').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/Mfirst",
+        success:function(){
+           window.location.href="/Mfirst"
+     }
+   })
+})
+function show(){
+$.ajax({
+   type:"GET",
+     url:"/Mnotice/show",
+     success:function(data){
+      $("#Notice").empty();
+      document.getElementById("Notice").innerHTML = data.list.map(i =>`
+      <tr>
+            <td>${i.notice}</td>
+            <td>${i.content}</td>
+      </tr> 
+            `);
+}
+})
+}
+show();
+
+
+$('#noticeAdd').click(function(){
+	$.ajax({
+		type:"POST",
+        url:"/Mnotice",
+        data:{"notice":$("#notice").val(),"content":$("#content").val()},
+        success:function(data){
+           show();
+	}
+  })
+})
+
+
+$('#Mnotice').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/Mfirst",
+        success:function(){
+           window.location.href="/Mnotice"
+     }
+   })
+})
+$('#teacher').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/detail",
+        success:function(){
+           window.location.href="/teacher"
+     }
+   })
+})
+$('#news').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/detail",
+        success:function(){
+           window.location.href="/news"
+     }
+   })
+})
+$('#teach_net').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/detail",
+        success:function(){
+           window.location.href="/teach_net"
+     }
+   })
+})
+$('#touch').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/detail",
+        success:function(){
+           window.location.href="/touch"
+     }
+   })
+})
+$('#talk').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/detail",
+        success:function(){
+           window.location.href="/talk"
+     }
+   })
+})

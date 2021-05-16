@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>深圳大学校园论坛</title>
+<link rel="stylesheet" href="stylesheets/css/style1.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="stylesheets/talk.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/Table.css">
+<script src="/javascripts/jquery-3.6.0.min.js"></script>
+<script src="/javascripts/axios.js"></script>
+</head>
+<body>
+<div id="hearder2" class="clearfix">
+	<div class="logo">
+   	  <img src="images/images/logo1.png">
+  </div>
+  <div>
+    <img src="images/xiaoxun.jpg" style="width: 200px;height: 101px; position: relative; left: 563px; top: 5px;">
+</div>
+</div>
+<div id="menu-box" class="clearfix">
+	<ul>
+    	<li><a id="first_page">首页</a></li>
+        <li><a id="center">招生简章</a></li>
+        <li><a id="teacher">师资队伍</a></li>
+        <li><a id="news">新闻中心</a></li>
+        <li><a id="touch">联系我们</a></li>
+        <li><a id="talk">校园论坛</a></li>
+    </ul>
+</div>
+<div id="slider-box" style="background:url(/images/images/slider4.jpg) center center;"></div>
+<div id="detail2-box" class="clearfix">
+	<div class="tit-80"><a id="news">校园论坛</a> - 查看详情</div>
+    <div class="tabula-box">
+    	<div class="max-tit">
+            <button onclick="alert()">发帖</button>
+            <button onclick="alert1()">评论</button>
+        </div>
+        <ul>
+            <li><a href="list-text1.html">校园</a></li>
+            <li><a href="list-text1.html">大一年级</a></li>
+            <li><a href="list-text1.html">大二年级</a></li>
+            <li><a href="list-text1.html">大三年级</a></li>
+            <li><a href="list-text1.html">大四年级</a></li>
+            <li><a href="list-text1.html">研一年级</a></li>
+            <li><a href="list-text1.html">研二年级</a></li>
+            <li><a href="list-text1.html">研三年级</a></li>
+        </ul>
+    </div>
+    <div class="content-box">
+    	<h1>校园论坛</h1>
+        <div class="content">
+        	<table class="tables">
+                <thead>
+                    <tr>
+                        <td>发布主</span></td>
+                        <td>发布内容<span class="upBtn"></span><span class="downBtn"></td>
+                        <td>评论<span class="upBtn"></span><span class="downBtn"></td>
+                        <td>点赞<span class="upBtn"></span><span class="downBtn"></td>
+                    </tr>
+                </thead>
+                <tbody id="showData">
+                </tbody>
+            </table>
+            <br>
+        </div>
+            <div id="talk1">
+                    <li><input type="text" id="name" placeholder="请输入发布人名字" /></li>
+                    <li><textarea id="content" cols="30" rows="10" placeholder="请输入内容" style="margin-top:10px;"></textarea></li>
+                    <button onclick="comeout()">发布内容</button>
+              </div>
+
+              <div id="talk2">
+                    <li>输入评论内容：</li>
+                    <li><textarea id="comment" cols="30" rows="10" placeholder="请输入评论内容" style="margin-top:10px;"></textarea></li>
+                    <li><input id="like" type="number" placeholder="点赞数"></li>
+                    <button onclick="comeout1()">发表评论</button>
+              </div>
+<div id="div6">Copyright &copy; 2021 深圳大学 All rights reserved.</div>
+<script src="javascripts/jq.js"></script>
+<script src="javascripts/talk.js"></script>
+</body>
+</html>
