@@ -1,0 +1,13 @@
+#sub{
+	background-color: blue;
+    color: white;
+    border:none;
+    font-size: 18px;
+    border-radius: 4px;
+    height: 30px;
+    width: 50px;  
+}
+body{
+    text-align:center;
+    background-image: url('/images/a.png')
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改页面</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/add.css">
+    <script src="/javascripts/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div id="update">
+</div>
+</body>
+<script>
+$.ajax({
+    type:"GET",
+    url:"/Mtouch/sub1",
+    success:function(data){
+       document.getElementById('update').innerHTML =data.data.map(i =>`
+        <input type="text" id="name1" name="name1" value="${i.name}">
+    </br>
+        <input type="number" id="phone1" name="phone1" value="${i.phone}">
+    </br>
+        <input type="text" id="major1" name="major1" value="${i.major}">
+    </br>
+        <input type="number" id="yeach_year1" name="teach_year1" value="${i.teach_year}">
+    </br>
+     <input type="submit" id="sub">
+       `
+       )}
+})
+
+    $('#sub').click(function(){
+        $.ajax({
+            type:"POST",
+            url:"/Mtouch/sub",
+            data:{"name1":$("#name1"),"phone1":$("#phone1"),"major1":$("#major1"),"teach_year1":$("#teach_year1")},
+            success:function(data){
+                console.log(data.data);
+              if(data.data==1){
+             window.location.href="/Mtouch"
+              }
+            }
+        })
+    })
+
+//     $("#update").delegate(".sub","click",function(){
+//         $.ajax({
+//             type:"POST",
+//             url:"/Mtouch/sub",
+//             data:{"name1":$("#name1"),"phone1":$("#phone1"),"major1":$("#major1"),"teach_year1":$("#teach_year1")},
+//             success:function(){
+//              window.location.href="/Mtouch"
+//             }
+//         })
+// })
+</script>
+</html>

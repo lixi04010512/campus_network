@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>公告添加</title>
+<link rel="stylesheet" href="stylesheets/css/style1.css" type="text/css" media="all"/>
+<link rel="stylesheet" type="text/css" href="/stylesheets/Table.css">
+<script src="/javascripts/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div id="hearder2" class="clearfix">
+	<div class="logo">
+   	  <img src="images/images/logo1.png">
+  </div>
+  <div>
+    <img src="images/xiaoxun.jpg" style="width: 200px;height: 101px; position: relative; left: 563px; top: 5px;">
+</div>
+</div>
+<div id="menu-box" class="clearfix">
+	<ul>
+        <li><a id="Mfirst_page">管理首页</a></li>
+        <li><a id="Mnotice">公告管理</a></li>
+        <li><a id="Mdynamic">动态管理</a></li>
+        <li><a id="Minnovate">创新管理</a></li>
+        <li><a id="Mteacher">教师队伍管理</a></li>
+        <li><a id="Mnews">新闻管理</a></li>
+        <li><a id="Mtouch">联系教师管理</a></li>
+        <li><a id="Mtalk">论坛管理</a></li>
+    </ul>
+</div>
+<div id="slider-box" style="background:url(/images/images/slider4.jpg) center center;"></div>
+<div id="detail2-box" class="clearfix">
+	<div class="tit-80"><a id="news">公告管理</a> - 查看详情</div>
+    <div class="tabula-box">
+    	<div class="max-tit">公告</div>
+        <ul>
+            <li><a href="list-text1.html">校园</a></li>
+            <li><a href="list-text1.html">大一年级</a></li>
+            <li><a href="list-text1.html">大二年级</a></li>
+            <li><a href="list-text1.html">大三年级</a></li>
+            <li><a href="list-text1.html">大四年级</a></li>
+            <li><a href="list-text1.html">研一年级</a></li>
+            <li><a href="list-text1.html">研二年级</a></li>
+            <li><a href="list-text1.html">研三年级</a></li>
+        </ul>
+    </div>
+    
+    <div class="content-box">
+    	<h1>公告管理</h1>
+        <div class="content">
+            <span>请输入公告标题</span>
+            <input type="text" name="notice" id="notice">
+            <br>
+            <span>请输入公告内容</span>
+            <input type="text" name="content" id="content">
+            <br>
+           <button id="noticeAdd">公告添加</button>
+           <div>
+            <table class="tables">
+                <thead>
+                    <tr>
+                        <td>标题</td>
+                        <td>内容</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody id="Notice">
+                </tbody>
+            </table>
+        </div>
+        </div>
+    </div>
+</div>
+<div id="div6">Copyright &copy; 2021 深圳大学 All rights reserved.</div>
+<script src="javascripts/jq1.js"></script>
+<script>
+//   通知
+function show(){
+$.ajax({
+   type:"GET",
+     url:"/Mnotice/show",
+     success:function(data){
+      $("#Notice").empty();
+      document.getElementById("Notice").innerHTML = data.list.map(i =>`
+      <tr>
+            <td>${i.notice}</td>
+            <td>${i.content}</td>
+            <td>
+                  <input type="button" value="删除" data-id="${i.notice}" class="del_data">
+                  <input type="button" value="修改" data-id="${i.notice}" class="update_data">
+               </td>
+      </tr> 
+            `).join("");
+}
+})
+}
+show();
+
+$('#noticeAdd').click(function(){
+	$.ajax({
+		type:"POST",
+        url:"/Mnotice",
+        data:{"notice":$("#notice").val(),"content":$("#content").val()},
+        success:function(data){
+           show();
+	}
+  })
+})
+
+$("#Notice").delegate(".del_data","click",function(){
+   $.ajax({
+		type:"POST",
+        url:"/Mnotice/del",
+        data:{"notice":$(this).data("id")},
+        success:function(data){
+           show();
+	}
+  })
+})
+
+</script>
+</body>
+</html>
