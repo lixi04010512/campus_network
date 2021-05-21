@@ -1,0 +1,76 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+  font  : 17px sans-serif;
+
+  padding : 2em;
+  margin  : 0;
+
+  background-image: url('/images/moon1.jpg');
+}
+
+form {
+	display: table;
+
+	position: relative;
+	margin: 0 auto;
+
+	width: 500px;
+	height: 300px;
+
+    border:1px solid white;
+    border-radius: 20px;
+}
+
+form div {
+    display: table-row;
+
+    position: relative;
+
+}
+
+form label,form input{
+    display: table-cell;
+    margin-top: 20px;
+}
+
+form label{
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+}
+
+form input{
+    width: 300px;
+    height: 35px;
+
+    padding: 5px;
+
+    border-radius: 5px;
+    outline: none;
+}
+
+button {
+	margin-left: 20px;
+
+	width: 50px;
+	height: 30px;
+	
+	font-size: 17px;
+	font-weight: bold;
+	color: #fff;
+
+	border-radius: 5px;
+	outline: none;
+
+	background-color: #6C8AF5;
+}
+#yes{
+    position: absolute;
+    left:160px;
+}
+.appear{
+    color: red;
+}

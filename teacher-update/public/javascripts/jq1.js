@@ -1,0 +1,75 @@
+//首页
+$('#Mfirst_page').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/Mfirst",
+        success:function(){
+           window.location.href="/Mfirst"
+     }
+   })
+})
+//公告
+$('#Mnotice').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/Mfirst",
+        success:function(){
+           window.location.href="/Mnotice"
+     }
+   })
+})
+
+//师资队伍
+$('#Mteacher').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/Mfirst",
+        success:function(){
+           window.location.href="/Mteacher"
+     }
+   })
+})
+
+//新闻
+$('#news').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/Mfirst",
+        success:function(){
+           window.location.href="/news"
+     }
+   })
+})
+
+
+$('#teach_net').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/detail",
+        success:function(){
+           window.location.href="/teach_net"
+     }
+   })
+})
+
+//联系教师
+$('#Mtouch').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/Mfirst",
+        success:function(){
+           window.location.href="/Mtouch"
+     }
+   })
+})
+
+//论坛
+$('#talk').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/detail",
+        success:function(){
+           window.location.href="/talk"
+     }
+   })
+})
