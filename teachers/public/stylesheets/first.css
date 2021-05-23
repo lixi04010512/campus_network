@@ -1,0 +1,34 @@
+body {    
+    background-image: url('/images/moon.jpg');
+  }
+  
+#first_form{
+    text-align:center;
+}
+
+
+.ul{
+    list-style: none;
+    padding-inline-start: 0;
+}
+.ul li{
+    display: inline-block;
+    padding: 9px 18.85px;
+    background-color: orangered;
+    margin: 0-3px;
+    color:white;
+}
+
+.ul li button{
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+
+	outline: none;
+    border: 0px;
+	background-color: orangered;
+}
+
+span{
+    text-align:center;
+}
