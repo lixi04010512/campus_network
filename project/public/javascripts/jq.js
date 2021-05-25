@@ -1,0 +1,63 @@
+$('#first_page').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/detail",
+        success:function(){
+           window.location.href="/first_page"
+     }
+   })
+})
+$('#center').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/detail",
+        success:function(){
+           window.location.href="/detail"
+     }
+   })
+})
+$('#teacher').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/detail",
+        success:function(){
+           window.location.href="/teacher"
+     }
+   })
+})
+$('#news').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/detail",
+        success:function(){
+           window.location.href="/news"
+     }
+   })
+})
+$('#teach_net').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/detail",
+        success:function(){
+           window.location.href="/teach_net"
+     }
+   })
+})
+$('#touch').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/detail",
+        success:function(){
+           window.location.href="/touch"
+     }
+   })
+})
+$('#talk').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/detail",
+        success:function(){
+           window.location.href="/talk"
+     }
+   })
+})

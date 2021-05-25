@@ -1,0 +1,16 @@
+#talk1{
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-color:skyblue;
+}
+
+#talk2{
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-color:skyblue;
+}
+

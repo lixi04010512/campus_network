@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>深圳大学联系方式</title>
+<link rel="stylesheet" href="stylesheets/css/style1.css" type="text/css" media="all"/>
+<link rel="stylesheet" type="text/css" href="/stylesheets/Table.css">
+<script src="/javascripts/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div id="hearder2" class="clearfix">
+	<div class="logo">
+   	  <img src="images/images/logo1.png">
+  </div>
+  <div>
+    <img src="images/xiaoxun.jpg" style="width: 200px;height: 101px; position: relative; left: 563px; top: 5px;">
+</div>
+</div>
+<div id="menu-box" class="clearfix">
+	<ul>
+    	<li><a id="first_page">首页</a></li>
+        <li><a id="center">招生简章</a></li>
+        <li><a id="teacher">师资队伍</a></li>
+        <li><a id="news">新闻中心</a></li>
+        <li><a id="touch">联系我们</a></li>
+        <li><a id="talk">校园论坛</a></li>
+    </ul>
+</div>
+<div id="slider-box" style="background:url(/images/images/slider4.jpg) center;"></div>
+<div id="detail2-box" class="clearfix">
+	<div class="tit-80"><a id="news">联系我们</a> - 查看详情</div>
+    <div class="tabula-box">
+    	<div class="max-tit">风采展示</div>
+        <ul>
+            <li><a href="list-text1.html">校园</a></li>
+            <li><a href="list-text1.html">大一年级</a></li>
+            <li><a href="list-text1.html">大二年级</a></li>
+            <li><a href="list-text1.html">大三年级</a></li>
+            <li><a href="list-text1.html">大四年级</a></li>
+            <li><a href="list-text1.html">研一年级</a></li>
+            <li><a href="list-text1.html">研二年级</a></li>
+            <li><a href="list-text1.html">研三年级</a></li>
+        </ul>
+    </div>
+    <div class="content-box">
+    	<h1>联系方式</h1>
+        <div class="content">
+        	<table class="tables">
+                <thead>
+                    <tr>
+                        <td>姓名</span></td>
+                        <td>电话<span class="upBtn"></span><span class="downBtn"></td>
+                        <td>专业<span class="upBtn"></span><span class="downBtn"></td>
+                        <td>教龄<span class="upBtn"></span><span class="downBtn"></td>
+                    </tr>
+                </thead>
+                <tbody id="showData">
+                </tbody>
+            </table>
+            <br>
+        </div>
+    </div>
+</div>
+<div id="div6">Copyright &copy; 2021 深圳大学 All rights reserved.</div>
+<script src="javascripts/jq.js"></script>
+<script>
+    $.ajax({
+        type:"POST",
+        url:"/touch",
+        success:function(data){
+         $("#showData").empty();
+     document.getElementById("showData").innerHTML = data.list.map(i =>`
+     <tr>
+           <td>${i.name}</td>
+           <td>${i.phone}</td>
+           <td>${i.major}</td>
+           <td>${i.teach_year}</td>
+     </tr> 
+           `).join("");
+        }
+    })
+</script>
+</body>
+</html>
