@@ -7,14 +7,14 @@ $('#yes').click(function(){
            if(data.status==1){
            window.location.href="/first_page"
 	}else{
-         alert("错误！！");
+         alert("密码输入错误！！");
 	    }
     }
   })
 })
 
 	//鼠标移开姓名框开始验证
-	$("#use_name").blur(function () {
+	$("#use_name").blur(function(){
 		var use_name = $("#use_name").val();
 		//姓名验证
 		var Username = /^[a-zA-Z\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/;

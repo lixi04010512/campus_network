@@ -41,13 +41,13 @@ $('#news').click(function(){
    })
 })
 
-
-$('#teach_net').click(function(){
+//招生简章
+$('#Mdetail').click(function(){
 	$.ajax({
 		type:"post",
         url:"/detail",
         success:function(){
-           window.location.href="/teach_net"
+           window.location.href="/Mdetail"
      }
    })
 })

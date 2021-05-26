@@ -2,9 +2,8 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>深圳大学招生简章</title>
-<link rel="stylesheet" href="stylesheets/css/style1.css"/>
-<link rel="stylesheet" href="stylesheets/Table.css"/>
+<title>深圳大学大二年级</title>
+<link rel="stylesheet" href="stylesheets/css/style1.css" type="text/css" media="all"/>
 <script src="/javascripts/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -28,9 +27,9 @@
 </div>
 <div id="slider-box" style="background:url(/images/images/slider4.jpg) center center;"></div>
 <div id="detail2-box" class="clearfix">
-	<div class="tit-80"><a id="news">招生简章</a> - 查看详情</div>
+	<div class="tit-80"><a id="news">大二年级</a> - 查看详情</div>
     <div class="tabula-box">
-    	<div class="max-tit">风采展示</div>
+    	<div class="max-tit">大二年级</div>
         <ul>
             <li><a href="html/campus.html">校园</a></li>
             <li><a href="html/college_one.html">大一年级</a></li>
@@ -44,39 +43,13 @@
     </div>
     
     <div class="content-box">
-    	<h1>招生简章</h1>
+    	<h1>大二年级</h1>
         <div class="content">
-            <table class="tables">
-                <thead>
-                    <tr>
-                        <td>条例</td>
-                        <td>具体准则</td>
-                    </tr>
-                </thead>
-                <tbody id="showData">
-                    
-                </tbody>
-            </table>
-            <br>
-        </div>
+
+          </div>
     </div>
 </div>
 <div id="div6">Copyright &copy; 2021 深圳大学 All rights reserved.</div>
 <script src="javascripts/jq.js"></script>
-<script>
-    $.ajax({
-        type:"POST",
-        url:"/detail/search",
-        success:function(data){
-         $("#showData").empty();
-     document.getElementById("showData").innerHTML = data.list.map(i =>`
-     <tr>
-           <td>${i.title}</td>
-           <td>${i.detail}</td>
-     </tr> 
-           `).join("");
-        }
-    })
-</script>
 </body>
 </html>

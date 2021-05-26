@@ -15,6 +15,7 @@ var touchRouter=require('./routes/touch');
 var talkRouter=require('./routes/talk');
 var updateRouter=require('./routes/update');
 var update_teachersRouter=require('./routes/update_teachers');
+var update_detailRouter=require('./routes/update_detail');
 
 var register1Router=require('./routes/register1');
 var login1Router=require('./routes/login1');
@@ -22,6 +23,7 @@ var MfirstRouter=require('./routes/Mfirst');
 var MnoticeRouter=require('./routes/Mnotice');
 var MtouchRouter=require('./routes/Mtouch');
 var MteacherRouter=require('./routes/Mteacher');
+var MdetailRouter=require('./routes/Mdetail');
 
 var app = express();
 
@@ -46,6 +48,7 @@ app.use('/touch',touchRouter);
 app.use('/talk',talkRouter);
 app.use('/update',updateRouter);
 app.use('/update_teachers',update_teachersRouter);
+app.use('/update_detail',update_detailRouter);
 
 app.use('/login1',login1Router);
 app.use('/register1',register1Router);
@@ -53,6 +56,7 @@ app.use('/Mfirst',MfirstRouter);
 app.use('/Mnotice',MnoticeRouter);
 app.use('/Mtouch',MtouchRouter);
 app.use('/Mteacher',MteacherRouter);
+app.use('/Mdetail',MdetailRouter);
 
 
 // catch 404 and forward to error handler

@@ -2,8 +2,8 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>师资队伍管理</title>
-<link rel="stylesheet" type="text/css" href="stylesheets/css/style1.css">
+<title>招生简章管理</title>
+<link rel="stylesheet" href="stylesheets/css/style1.css" type="text/css" media="all"/>
 <link rel="stylesheet" type="text/css" href="/stylesheets/Table.css">
 <script src="/javascripts/jquery-3.6.0.min.js"></script>
 </head>
@@ -11,10 +11,10 @@
 <div id="hearder2" class="clearfix">
 	<div class="logo">
    	  <img src="images/images/logo1.png">
-    </div>
-    <div>
+  </div>
+  <div>
     <img src="images/xiaoxun.jpg" style="width: 200px;height: 101px; position: relative; left: 563px; top: 5px;">
-    </div>
+</div>
 </div>
 <div id="menu-box" class="clearfix">
 	<ul>
@@ -22,7 +22,7 @@
         <li><a id="Mnotice">公告管理</a></li>
         <li><a id="Mdetail">招生简章管理</a></li>
         <li><a id="Minnovate">创新管理</a></li>
-        <li><a id="Mteacher">师资队伍管理</a></li>
+        <li><a id="Mteacher">教师队伍管理</a></li>
         <li><a id="Mnews">新闻管理</a></li>
         <li><a id="Mtouch">联系教师管理</a></li>
         <li><a id="Mtalk">论坛管理</a></li>
@@ -30,9 +30,9 @@
 </div>
 <div id="slider-box" style="background:url(/images/images/slider4.jpg) center center;"></div>
 <div id="detail2-box" class="clearfix">
-	<div class="tit-80"><a id="news">师资队伍管理</a> - 查看详情</div>
+	<div class="tit-80"></div>
     <div class="tabula-box">
-    	<div class="max-tit">师资队伍</div>
+    	<div class="max-tit">管理员系统</div>
         <ul>
             <li><a href="html/campus.html">校园</a></li>
             <li><a href="html/college_one.html">大一年级</a></li>
@@ -46,30 +46,29 @@
     </div>
     
     <div class="content-box">
-        <h1>师资队伍管理</h1>
-            <span>请上传教师图片</span>
-            <input name="avatar" type="file">
+        <h1>招生简章管理</h1>
+            <span>请输入条例</span>
+            <input type="text" name="title" id="title">
             <br>
-            <span>请输入教师姓名</span>
-            <input type="text" name="name" id="name">
+            <span>请输入具体准则</span>
+            <input type="text" name="detail" id="detail">
             <br>
-           <button id="teachersAdd">师资队伍添加</button>
+           <button id="detailAdd">联系教师添加</button>
            </div>
             <table class="tables">
             <thead>
                 <tr>
-                    <td>教师姓名</td>
-                    <td>图片</td>
-                    <td>操作</td>
+                    <td>条例</td>
+                    <td>具体准则</td>
                 </tr>
             </thead>
-            <tbody id="Teachers">
+            <tbody id="Detail">
 
             </tbody>
         </table>
     </div>
 <div id="div6">Copyright &copy; 2021 深圳大学 All rights reserved.</div>
 <script src="javascripts/jq1.js"></script>
-<script src="javascripts/Mteachers.js"></script>
+<script src="javascripts/Mdetail.js"></script>
 </body>
 </html>
