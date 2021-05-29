@@ -56,6 +56,7 @@ function load(){
           url:"/Mdetail/update",
           data:{"title":$(this).data("id")},
           success:function(data){
+            console.log($(this).data("id"));
               if(data.data==1){
                   window.location.href="/update_detail";
               }

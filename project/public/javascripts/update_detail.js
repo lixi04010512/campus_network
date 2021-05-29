@@ -7,7 +7,7 @@ $.ajax({
         <span>条例:</span>
         <input type="text" id="title1" name="title1" value="${i.title}">
     </br>
-        <span>具体准则:</span>
+        <span>准则:</span>
         <input type="text" id="detail1" name="detail1" value="${i.detail}">
     </br>
        `

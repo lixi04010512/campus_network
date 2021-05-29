@@ -4,7 +4,7 @@ $.ajax({
       url:"/Mteacher/teachers",
       success:function(data){
        $("#Teachers").empty();
-       document.getElementById("Teachers").innerHTML = data.listTeacher.map(i =>`
+       document.getElementById("Teachers").innerHTML = data.listTeachers.map(i =>`
        <tr>
              <td>${i.teacher_name}</td>
              <td>${i.teacher_image}</td>
@@ -22,7 +22,7 @@ $('#teachersAdd').click(function(){
     $.ajax({
         type:"POST",
         url:"/Mteacher",
-        data:{"teacher_image":$("#teacher_image").val(),"teacher_name":$("#teacher_name").val()},
+        data:{"teacher_image":$("#teacher_image").attr('src'),"teacher_name":$("#teacher_name").val()},
         success:function(data){
             window.location.href="/Mteacher"
       }

@@ -36,7 +36,7 @@ router.post('/',(req,res) =>{
 //删除
     router.post('/del',(req,res)=>{
       let title=req.body.title;
-      var query="delete from tab_teacher where title='"+title+"' ";
+      var query="delete from tab_detail where title='"+title+"' ";
       connection.query(query,(err,results,fields)=>{
         if(err){
           console.log(err);
@@ -70,7 +70,7 @@ router.post('/',(req,res) =>{
     router.post('/sub',(req,res)=>{
       let title1=req.body.title1;
       let detail1=req.body.detail1;
-      var query="update tab_detail set title='"+title1+"',detail='"+detail1+"' where name='"+arr[0].title+"'  ";
+      var query="update tab_detail set title='"+title1+"',detail='"+detail1+"' where title='"+arr[0].title+"'  ";
       connection.query(query,(err,results,fields) =>{
         if(err){
          console.log(err);

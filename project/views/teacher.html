@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <title>深圳大学师资队伍</title>
-<link rel="stylesheet" href="stylesheets/css/style1.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="stylesheets/css/style1.css">
+<script src="javascripts/js/jquery-1.8.3.min.js"></script>
 </head>
-
 <body>
 <div id="hearder2" class="clearfix">
 	<div class="logo">
    	  <img src="images/images/logo1.png">
-  </div>
-  <div>
+    </div>
+    <div>
     <img src="images/xiaoxun.jpg" style="width: 200px;height: 101px; position: relative; left: 563px; top: 5px;">
-</div>
+   </div>
 </div>
 <div id="menu-box" class="clearfix">
 	<ul>
@@ -43,96 +43,15 @@
     
     <div class="content-box">
     	<h1>教师介绍</h1>
-        <ul class="clearfix" style=" width:705px; margin-left:-10px;">
-            <li class="pic">
-            	<div class="img-box">
-                	<a href="detail1.html">
-                		<img src="images/wlx.jpg">
-                    </a>
-                </div>
-                <h3><a href="detail1.html">王立新</a></h3>
-            </li>
-            <li class="pic">
-            	<div class="img-box">
-                	<a href="detail1.html">
-                		<img src="images/thr.jpg">
-                    </a>
-                </div>
-                <h3><a href="detail1.html">陶惠人</a></h3>
-            </li>
-            <li class="pic">
-            	<div class="img-box">
-                	<a href="detail1.html">
-                		<img src="images/hwp.jpg">
-                    </a>
-                </div>
-                <h3><a href="detail1.html">黄卫平</a></h3>
-            </li>
-            <li class="pic">
-            	<div class="img-box">
-                	<a href="detail1.html">
-                		<img src="images/lhy.jpg">
-                    </a>
-                </div>
-                <h3><a href="detail1.html">刘洪一</a></h3>
-            </li>
-            <li class="pic">
-            	<div class="img-box">
-                	<a href="detail1.html">
-                		<img src="images/xgm.jpg">
-                    </a>
-                </div>
-                <h3><a href="detail1.html">谢国明</a></h3>
-            </li>
-            <li class="pic">
-            	<div class="img-box">
-                	<a href="detail1.html">
-                		<img src="images/wy.jpg">
-                    </a>
-                </div>
-                <h3><a href="detail1.html">王一</a></h3>
-            </li>
-            <li class="pic">
-            	<div class="img-box">
-                	<a href="detail1.html">
-                		<img src="images/lf.jpg">
-                    </a>
-                </div>
-                <h3><a href="detail1.html">刘方</a></h3>
-            </li>
-            <li class="pic">
-            	<div class="img-box">
-                	<a href="detail1.html">
-                		<img src="images/mbs.jpg">
-                    </a>
-                </div>
-                <h3><a href="detail1.html">马波生</a></h3>
-            </li>
-            <li class="pic">
-            	<div class="img-box">
-                	<a href="detail1.html">
-                		<img src="images/ly.jpg">
-                    </a>
-                </div>
-                <h3><a href="detail1.html">刘艳</a></h3>
-            </li>
-
+        <ul class="clearfix" style=" width:705px; margin-left:-10px;" id="showTeachers">
+        
         </ul>
         <div class="tcdPageCode"></div>
     </div>
 </div>
 <div id="div6">Copyright &copy; 2021 深圳大学 All rights reserved.</div>
-<script src="javascripts/js/jquery-1.8.3.min.js"></script>
 <script src="javascripts/js/jquery.page.js"></script>
-<script>
-    $(".tcdPageCode").createPage({
-        pageCount:100,
-        current:1,
-        backFn:function(p){
-            //console.log(p);
-        }
-    });
-</script>
+<script src="javascripts/teacher.js"></script>
 <script src="javascripts/jq.js"></script>
 </body>
 </html>

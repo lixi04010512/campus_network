@@ -19,6 +19,17 @@ $('#Mnotice').click(function(){
    })
 })
 
+//招生简章
+$('#Mdetail').click(function(){
+	$.ajax({
+		type:"post",
+        url:"/detail",
+        success:function(){
+           window.location.href="/Mdetail"
+     }
+   })
+})
+
 //师资队伍
 $('#Mteacher').click(function(){
 	$.ajax({
@@ -37,17 +48,6 @@ $('#news').click(function(){
         url:"/Mfirst",
         success:function(){
            window.location.href="/news"
-     }
-   })
-})
-
-//招生简章
-$('#Mdetail').click(function(){
-	$.ajax({
-		type:"post",
-        url:"/detail",
-        success:function(){
-           window.location.href="/Mdetail"
      }
    })
 })

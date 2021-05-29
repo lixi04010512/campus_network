@@ -34,15 +34,6 @@ $('#news').click(function(){
      }
    })
 })
-$('#teach_net').click(function(){
-	$.ajax({
-		type:"post",
-        url:"/detail",
-        success:function(){
-           window.location.href="/teach_net"
-     }
-   })
-})
 $('#touch').click(function(){
 	$.ajax({
 		type:"post",
