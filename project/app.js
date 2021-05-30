@@ -24,6 +24,7 @@ var MnoticeRouter=require('./routes/Mnotice');
 var MtouchRouter=require('./routes/Mtouch');
 var MteacherRouter=require('./routes/Mteacher');
 var MdetailRouter=require('./routes/Mdetail');
+var MtalkRouter=require('./routes/Mtalk');
 
 var app = express();
 
@@ -57,7 +58,7 @@ app.use('/Mnotice',MnoticeRouter);
 app.use('/Mtouch',MtouchRouter);
 app.use('/Mteacher',MteacherRouter);
 app.use('/Mdetail',MdetailRouter);
-
+app.use('/Mtalk',MtalkRouter);
 
 
 // catch 404 and forward to error handler

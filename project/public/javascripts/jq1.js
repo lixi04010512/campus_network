@@ -1,7 +1,7 @@
 //首页
 $('#Mfirst_page').click(function(){
 	$.ajax({
-		type:"post",
+		type:"POST",
         url:"/Mfirst",
         success:function(){
            window.location.href="/Mfirst"
@@ -11,7 +11,7 @@ $('#Mfirst_page').click(function(){
 //公告
 $('#Mnotice').click(function(){
 	$.ajax({
-		type:"post",
+		type:"POST",
         url:"/Mfirst",
         success:function(){
            window.location.href="/Mnotice"
@@ -22,7 +22,7 @@ $('#Mnotice').click(function(){
 //招生简章
 $('#Mdetail').click(function(){
 	$.ajax({
-		type:"post",
+		type:"POST",
         url:"/detail",
         success:function(){
            window.location.href="/Mdetail"
@@ -33,7 +33,7 @@ $('#Mdetail').click(function(){
 //师资队伍
 $('#Mteacher').click(function(){
 	$.ajax({
-		type:"post",
+		type:"POST",
         url:"/Mfirst",
         success:function(){
            window.location.href="/Mteacher"
@@ -44,7 +44,7 @@ $('#Mteacher').click(function(){
 //新闻
 $('#news').click(function(){
 	$.ajax({
-		type:"post",
+		type:"POST",
         url:"/Mfirst",
         success:function(){
            window.location.href="/news"
@@ -55,7 +55,7 @@ $('#news').click(function(){
 //联系教师
 $('#Mtouch').click(function(){
 	$.ajax({
-		type:"post",
+		type:"POST",
         url:"/Mfirst",
         success:function(){
            window.location.href="/Mtouch"
@@ -64,12 +64,12 @@ $('#Mtouch').click(function(){
 })
 
 //论坛
-$('#talk').click(function(){
+$('#Mtalk').click(function(){
 	$.ajax({
-		type:"post",
-        url:"/detail",
+		type:"POST",
+        url:"/Mfirst",
         success:function(){
-           window.location.href="/talk"
+           window.location.href="/Mtalk"
      }
    })
 })

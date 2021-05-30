@@ -9,12 +9,23 @@
 	<script src="/javascripts/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <form method="POST" action="/register1" style="opacity:0.6">
+    <div id="all" style="opacity:0.6">
 		<h3>管理注册</h3>
 		<div>
 			<label>用户名</label>
 			<input type="text" name="use_name" id="use_name">
 			<p class="appear" id="p_name"></p>
+		</div>
+		<div>
+			<label>邮箱</label>
+			<input type="text" name="use_email" id="use_email">
+			<button id="deliver">发送</button>
+			<p class="appear" id="p_email"></p>
+		</div>
+		<div>
+			<label>验证码</label>
+			<input type="number" name="use_random" id="use_random">
+			<p class="appear" id="p_random"></p>
 		</div>
 		<div>
 			<label>密码</label>
@@ -27,7 +38,7 @@
 			<p class="appear" id="p_password1"></p>
 		</div>
         <button id="yes">确认</button>
-	</form>
-    <script src="/javascripts/register.js"></script>
+	</div>
+    <script src="/javascripts/register1.js"></script>
 </body>
 </html>

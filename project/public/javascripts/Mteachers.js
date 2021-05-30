@@ -22,9 +22,11 @@ $('#teachersAdd').click(function(){
     $.ajax({
         type:"POST",
         url:"/Mteacher",
-        data:{"teacher_image":$("#teacher_image").attr('src'),"teacher_name":$("#teacher_name").val()},
+        data:{"teacher_name":$("#teacher_name").val()},
         success:function(data){
+          if(data.status==1){
             window.location.href="/Mteacher"
+          }
       }
    })
 })

@@ -3,7 +3,7 @@ var connection =require('./database.js');
 var router = express.Router();
 var User =require('./bean/user');
 var md5 =require("md5");
-var email = require('./email.js');
+var email = require('./email_account.js');
 
 
 router.get('/', function(req, res, next) {

@@ -11,7 +11,7 @@ body {
   background-image: url('/images/moon1.jpg');
 }
 
-form {
+#all {
 	display: table;
 
 	position: relative;
@@ -24,25 +24,25 @@ form {
     border-radius: 20px;
 }
 
-form div {
+ div {
     display: table-row;
 
     position: relative;
 
 }
 
-form label,form input{
+ label,form input{
     display: table-cell;
     margin-top: 20px;
 }
 
-form label{
+ label{
     width: 100px;
     text-align: center;
     font-weight: bold;
 }
 
-form input{
+ input{
     width: 300px;
     height: 35px;
 

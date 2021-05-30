@@ -1,6 +1,7 @@
 var express = require('express');
 var formidable = require("formidable");
 var connection =require('./database.js');
+var fs =require('fs');
 var router = express.Router();
 
 
@@ -9,34 +10,37 @@ router.get('/', function(req, res, next) {
 });
 
 //增加师资队伍中老师的信息
-router.post("/",(request,response) => {
-	let teacher_name=req.body.teacher_name;
+router.post("/",(req,res) => {
 	var form = formidable({
 		multiples: true,
-        uploadDir: path.join(__dirname,"public/images")  // 指定图片存放的目录为当前文件夹的images
+        uploadDir: path.join(__dirname,"../public/images")
 	})
-	form.parse(request, (err, fields, files) => {
-		let res = fields;// 说明上传了图片
-		if(Object.keys(files).length > 0) {
-			const basename = path.basename(files.avatar_url.path)
-			const originUrl = request.headers.host
-			const file_url = `${originUrl}/images/${basename}`
-			const fileObj = {
-				avatar_url:file_url
-			}
-			res = {...res, ...fileObj}
-			var query = 'insert into tab_teachers (teacher_name,teacher_image) values ("'+teahcer_name+'","'+file_url+'") '
+	form.parse(req, (err, fields, files) => {
+	   if(!files){
+           
+	   }else{
+           let name_image=path.extname(files.img.path);
+		   fs.rename(
+			   files.img.path,
+			   path.join(__dirname,'../public/images'+name_image),
+			   (err)=>{console.log(err)}
+		   )
+		   let teacher_name=req.body.teacher_name;
+			var query = 'insert into tab_teachers (teacher_name,teacher_image) values ("'+teahcer_name+'","/public/images/'+name_image+'") '
                
 			connection.query(query,(err,results,fields)=> {
 			if(err){
 			  console.log(err);
 			  return;
+			}else{
+				res.json({"status":1})
 			}
 		})
-		}
-		response.send(res)
+	}
+		})
 	})
-})
+
+
 
 //从数据库取值
 router.get('/teachers',(req,res) =>{
