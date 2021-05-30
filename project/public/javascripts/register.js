@@ -15,6 +15,38 @@
 		$("#p_name").html("");
 	  })
 
+	//鼠标移开邮箱框开始验证
+	$("#use_email").blur(function () {
+		var use_email = $("#use_email").val();
+		//邮箱验证
+		var Useremail = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+		if (!Useremail.test(use_email)) {
+			$("#p_email").html("<font color=\"red\" size=\"2\">邮箱格式填写错误！</font>");
+		} else {
+			$("#p_email").html("<font color=\"green\" size=\"2\">邮箱格式正确！</font>");
+		}
+	})
+	//鼠标放置姓名框不验证
+	$("#use_email").focus(function(){
+		$("#p_email").html("");
+	  })
+
+	//鼠标移开验证码框开始验证
+	$("#use_random").blur(function () {
+		var use_random = $("#use_random").val();
+		//验证码验证
+		if (number!=use_random) {
+			$("#p_random").html("<font color=\"red\" size=\"2\">验证码输入错误！</font>");
+		} else {
+			$("#p_random").html("<font color=\"green\" size=\"2\">验证码输入正确！</font>");
+		}
+	})
+
+	//鼠标放置验证码框不验证
+	$("#use_random").focus(function(){
+		$("#p_random").html("");
+	  })
+
 	//鼠标移开密码框开始验证
 	$("#use_password").blur(function () {
 		var password = $("#use_password").val();
@@ -49,3 +81,37 @@
 		$("#p_password1").html("");
 	  })
 		
+	  let number=null;
+
+$("#yes").click(function(){
+	$.ajax({
+		type:"POST",
+		url:"/register",
+		data:{"use_name":$("#use_name").val(),"use_password":$("#use_password").val(),"use_email":$("#use_email").val()},
+		success:function(data){
+			if(data.status==1){
+			alert("注册成功!");
+			window.location.href="/login";
+		 }else{
+			 alert("注册失败！");
+		 }
+		}
+	})
+})
+
+    $("#deliver").click(function(){
+	  $.ajax({
+		  type:"POST",
+		  url:"/register/random",
+		  data:{"use_email":$("#use_email").val()},
+		  success:function(data){
+              if(data.status ==1){
+				number=data.random;
+				console.log(number);
+                  alert("发送成功！");
+			  }else{
+				  alert("发送失败！");
+			  }
+		  }
+	  })
+	})
