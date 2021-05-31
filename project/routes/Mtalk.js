@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
  router.get('/discuss',(req,res) =>{
   var query = "select name,title,content,comment,like from tab_discuss ";
   connection.query(query,(err,results,fields)=>{
-    res.json({list:results});
+    res.json({"list":results});
   })
 })  
 

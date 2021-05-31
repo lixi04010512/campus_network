@@ -2,6 +2,7 @@ var express = require('express');
 var formidable = require("formidable");
 var connection =require('./database.js');
 var fs =require('fs');
+var path=require('path');
 var router = express.Router();
 
 
@@ -19,13 +20,13 @@ router.post("/",(req,res) => {
 	   if(!files){
            
 	   }else{
-           let name_image=path.extname(files.img.path);
+           let name_image=path.extname(files.img.name);
+		   
 		   fs.rename(
 			   files.img.path,
 			   path.join(__dirname,'../public/images'+name_image),
 			   (err)=>{console.log(err)}
 		   )
-		   let teacher_name=req.body.teacher_name;
 			var query = 'insert into tab_teachers (teacher_name,teacher_image) values ("'+teahcer_name+'","/public/images/'+name_image+'") '
                
 			connection.query(query,(err,results,fields)=> {

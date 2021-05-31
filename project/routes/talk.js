@@ -7,6 +7,10 @@ router.get('/', function(req, res, next) {
   res.render('talk');
 });
 
+router.post('/out',(req,res)=>{
+  res.json({"status":1});
+})
+
 //获取前端的参数,存入数据库
 router.post('/',(req,res) =>{
   let name=req.body.name;
@@ -17,7 +21,7 @@ router.post('/',(req,res) =>{
    })
 
  router.get('/discuss',(req,res) =>{
-  var query = "select name,title,content,comment,like from tab_discuss ";
+  var query = "select * from tab_discuss ";
   
   connection.query(query,(err,results,fields)=>{
     res.json({list:results});

@@ -1,0 +1,12 @@
+$("#sub").click(function(){
+    $.ajax({
+		type:"POST",
+        url:"/add_content",
+        data:{"name":$("#name").val(),"title":$("#title").val(),"content":$("#content").val()},
+        success:function(data){
+            if(data.status==1){
+          window.location.href="/talk"
+            }
+     }
+   })
+})

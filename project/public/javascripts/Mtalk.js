@@ -1,8 +1,9 @@
 //校园论坛管理
 $.ajax({
     type:"GET",
-    url:"/talk/discuss",
+    url:"/Mtalk/discuss",
     success:function(data){
+          console.log(data.list);
      $("#Talk").empty();
      document.getElementById("Talk").innerHTML = data.list.map(i =>`
      <tr>
