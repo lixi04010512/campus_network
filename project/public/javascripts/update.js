@@ -26,7 +26,6 @@ $.ajax({
             url:"/Mtouch/sub",
             data:{"name1":$("#name1").val(),"phone1":$("#phone1").val(),"major1":$("#major1").val(),"teach_year1":$("#teach_year1").val()},
             success:function(data){
-                console.log(data.data);
               if(data.data==1){
              window.location.href="/Mtouch"
               }

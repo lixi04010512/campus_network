@@ -63,3 +63,27 @@ function load(){
       }
     })
     })
+
+    
+$("#sub_find").click(function(){
+  $.ajax({
+    type:"POST",
+    url:"/Mdetail/find",
+    data:{"data":$("#find").val()},
+    success:function(data){
+      $("#Detail").empty();
+      for( var i of data.list){
+      $("#Detail").append(`
+      <tr>
+            <td>${i.title}</td>
+            <td>${i.detail}</td>
+            <td>
+               <input type="button" value="删除" data-id="${i.title}" class="del_data">
+               <input type="button" value="修改" data-id="${i.title}" class="update_data">
+            </td>
+      </tr> 
+            `)
+      }
+    }
+  })
+})

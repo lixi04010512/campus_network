@@ -63,6 +63,31 @@ $("#Teacher").delegate(".update_data","click",function(){
           if(data.data==1){
               window.location.href="/update";
           }
-  }
+      }
+   })
 })
+
+$("#sub_find").click(function(){
+  $.ajax({
+    type:"POST",
+    url:"/Mtouch/find",
+    data:{"data":$("#find").val()},
+    success:function(data){
+      $("#Teacher").empty();
+      for( var i of data.list){
+      $("#Teacher").append(`
+      <tr>
+            <td>${i.name}</td>
+            <td>${i.phone}</td>
+            <td>${i.major}</td>
+            <td>${i.teach_year}</td>
+            <td>
+               <input type="button" value="删除" data-id="${i.name}" class="del_data">
+               <input type="button" value="修改" data-id="${i.name}" class="update_data">
+            </td>
+      </tr> 
+            `)
+      }
+    }
+  })
 })

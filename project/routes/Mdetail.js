@@ -45,7 +45,19 @@ router.post('/',(req,res) =>{
         res.json({"del":1});
       })
     })
-    
+
+//查询
+  router.post('/find',(req,res)=>{
+    let data=req.body.data;
+    var query = "select title,detail from tab_detail where title like '%"+data+"%' or detail like '%"+data+"%' ";
+    connection.query(query,(err,results,fields)=>{
+      if(err){
+        console.log(err);
+        return;
+      }
+      res.json({list:results});
+    })
+  })
 //修改
    var arr=new Array();
     router.post('/update',(req,res) =>{

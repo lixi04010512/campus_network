@@ -35,6 +35,18 @@ router.post('/',(req,res) =>{
       })
   })
 
+  //查询
+  router.post('/find',(req,res)=>{
+    let data=req.body.data;
+    var query = "select name,phone,major,teach_year from tab_teacher where name like '%"+data+"%' or phone like'%"+data+"%' or major like'%"+data+"%' or teach_year like'%"+data+"%' ";
+    connection.query(query,(err,results,fields)=>{
+      if(err){
+        console.log(err);
+        return;
+      }
+      res.json({list:results});
+    })
+  })
 //删除
     router.post('/del',(req,res)=>{
       let name=req.body.name;
