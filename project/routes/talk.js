@@ -7,26 +7,27 @@ router.get('/', function(req, res, next) {
   res.render('talk');
 });
 
-router.post('/out',(req,res)=>{
-  res.json({"status":1});
-})
-
-//获取前端的参数,存入数据库
-router.post('/',(req,res) =>{
-  let name=req.body.name;
-  let content=req.body.content;
-  var query = 'insert tab_discuss(name,content) values("'+name+'","'+content+'")'
-  connection.query(query, (err,results,fields)=> {
-      })
-   })
-
+//展示值在页面
  router.get('/discuss',(req,res) =>{
-  var query = "select * from tab_discuss ";
+  var query = "select * from tab_notice ";
   
   connection.query(query,(err,results,fields)=>{
     res.json({list:results});
   })
 })  
+
+//查询
+router.post('/find',(req,res)=>{
+  let data=req.body.data;
+  var query = "select title,content from tab_notice where title like '%"+data+"%' or content like'%"+data+"%' ";
+  connection.query(query,(err,results,fields)=>{
+    if(err){
+      console.log(err);
+      return;
+    }
+    res.json({list:results});
+  })
+})
 
 
 module.exports = router;

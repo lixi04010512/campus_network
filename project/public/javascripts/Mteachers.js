@@ -41,7 +41,7 @@ $('#teachersAdd').click(function(){
             window.location.href="/Mteachers"
     }
   })
-  })
+})
   
 //修改按钮
   $("#Teachers").delegate(".update_data","click",function(){
@@ -55,4 +55,4 @@ $('#teachersAdd').click(function(){
             }
     }
   })
-  })
+})

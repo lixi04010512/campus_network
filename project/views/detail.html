@@ -23,7 +23,7 @@
         <li><a id="teacher">师资队伍</a></li>
         <li><a id="news">新闻中心</a></li>
         <li><a id="touch">联系我们</a></li>
-        <li><a id="talk">校园论坛</a></li>
+        <li><a id="talk">公告通知</a></li>
     </ul>
 </div>
 <div id="slider-box" style="background:url(/images/images/slider4.jpg) center center;"></div>
@@ -46,6 +46,10 @@
     <div class="content-box">
     	<h1>招生简章</h1>
         <div class="content">
+            <span>搜索：</span>
+        <input type="text" name="find" id="find" placeholder="搜索">
+        <input type="submit" id="sub_find" value="查询">
+        <br>
             <table class="tables">
                 <thead>
                     <tr>
@@ -63,20 +67,6 @@
 </div>
 <div id="div6">Copyright &copy; 2021 深圳大学 All rights reserved.</div>
 <script src="javascripts/jq.js"></script>
-<script>
-    $.ajax({
-        type:"POST",
-        url:"/detail/search",
-        success:function(data){
-         $("#showData").empty();
-     document.getElementById("showData").innerHTML = data.list.map(i =>`
-     <tr>
-           <td>${i.title}</td>
-           <td>${i.detail}</td>
-     </tr> 
-           `).join("");
-        }
-    })
-</script>
+<script src="javascripts/detail.js"></script>
 </body>
 </html>

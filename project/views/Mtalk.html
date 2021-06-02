@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>校园论坛管理</title>
+<title>公告通知管理</title>
 <link rel="stylesheet" href="stylesheets/css/style1.css">
 <link rel="stylesheet" href="/stylesheets/Mtalk.css">
 <script src="/javascripts/jquery-3.6.0.min.js"></script>
@@ -19,25 +19,45 @@
 <div id="menu-box" class="clearfix">
 	<ul>
         <li><a id="Mfirst_page">管理首页</a></li>
-        <li><a id="Mnotice">公告管理</a></li>
         <li><a id="Mdetail">招生简章管理</a></li>
-        <li><a id="Minnovate">创新管理</a></li>
         <li><a id="Mteacher">师资队伍管理</a></li>
-        <li><a id="Mnews">新闻管理</a></li>
         <li><a id="Mtouch">联系教师管理</a></li>
-        <li><a id="Mtalk">论坛管理</a></li>
+        <li><a id="Mtalk">公告通知管理</a></li>
     </ul>
 </div>
 <div id="slider-box" style="background:url(/images/images/slider4.jpg) center center;"></div>
 <div id="detail2-box" class="clearfix">
-        <div class="content">
+<div class="tit-80"><a href="list-text1.html">公告管理</a> - 查看详情</div>
+    <div class="tabula-box">
+    	<div class="max-tit">管理员系统</div>
+        <ul>
+            <li><a href="list-text1.html">校园</a></li>
+            <li><a href="list-text1.html">大一年级</a></li>
+            <li><a href="list-text1.html">大二年级</a></li>
+            <li><a href="list-text1.html">大三年级</a></li>
+            <li><a href="list-text1.html">大四年级</a></li>
+            <li><a href="list-text1.html">研一年级</a></li>
+            <li><a href="list-text1.html">研二年级</a></li>
+            <li><a href="list-text1.html">研三年级</a></li>
+        </ul>
+    </div>
+        <div class="content-box">
+            <h1>公告管理</h1>
+            <span>请输入公告标题</span>
+            <input type="text" name="title" id="title">
+            <span>搜索：</span>
+            <input type="text" name="find" id="find" placeholder="搜索">
+            <input type="submit" id="sub_find" value="查询">
+            <br>
+            <span>请输入公告内容</span>
+            <input type="text" name="content" id="content">
+            <br>
+           <button id="noticeAdd">公告通知添加</button>
             <table class="tables">
                 <thead>
                     <tr>
-                        <td>发布人</td>
                         <td>标题</td>
                         <td>内容</td>
-                        <td>评论</td>
                         <td>点赞</td>
                         <td>操作</td>
                     </tr>

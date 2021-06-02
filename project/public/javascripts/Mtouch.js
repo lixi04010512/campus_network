@@ -1,4 +1,5 @@
 //联系教师管理
+
 function load(){
 $.ajax({
     type:"GET",
@@ -20,10 +21,11 @@ $.ajax({
              `)
        }
      }
- })
+  })
 }
 load();
 
+//新增按钮
 $('#teacherAdd').click(function(){
   $.ajax({
       type:"POST",
@@ -37,10 +39,11 @@ $('#teacherAdd').click(function(){
             $("#major").val("");
             $("#teach_year").val("");
           }
-  }
-})
+      }
+   })
 })
 
+//删除按钮
 $("#Teacher").delegate(".del_data","click",function(){
  $.ajax({
       type:"POST",
@@ -50,10 +53,11 @@ $("#Teacher").delegate(".del_data","click",function(){
         if(data.del ==1){
           load();
         }
-  }
-})
+     }
+   })
 })
 
+//修改按钮
 $("#Teacher").delegate(".update_data","click",function(){
  $.ajax({
       type:"POST",
@@ -67,6 +71,7 @@ $("#Teacher").delegate(".update_data","click",function(){
    })
 })
 
+//查询按钮
 $("#sub_find").click(function(){
   $.ajax({
     type:"POST",

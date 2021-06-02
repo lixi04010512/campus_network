@@ -45,6 +45,10 @@
     <div class="content-box">
     	<h1>联系方式</h1>
         <div class="content">
+            <span>搜索：</span>
+            <input type="text" name="find" id="find" placeholder="搜索">
+            <input type="submit" id="sub_find" value="查询">
+            <br>
         	<table class="tables">
                 <thead>
                     <tr>
@@ -55,6 +59,7 @@
                     </tr>
                 </thead>
                 <tbody id="showData">
+
                 </tbody>
             </table>
             <br>
@@ -63,22 +68,6 @@
 </div>
 <div id="div6">Copyright &copy; 2021 深圳大学 All rights reserved.</div>
 <script src="javascripts/jq.js"></script>
-<script>
-    $.ajax({
-        type:"POST",
-        url:"/touch",
-        success:function(data){
-         $("#showData").empty();
-     document.getElementById("showData").innerHTML = data.list.map(i =>`
-     <tr>
-           <td>${i.name}</td>
-           <td>${i.phone}</td>
-           <td>${i.major}</td>
-           <td>${i.teach_year}</td>
-     </tr> 
-           `).join("");
-        }
-    })
-</script>
+<script src="javascripts/touch.js"></script>
 </body>
 </html>

@@ -1,35 +1,42 @@
-//
+//公告通知页面
+
+//展示公告内容在页面
 $.ajax({
     type:"GET",
     url:"/talk/discuss",
     success:function(data){
-     $("#talk1").empty();
+     $("#showNotice").empty();
      for( var i of data.list){
-        $("#talk1").append(`
-     <tr>
-           <td>${i.name}</td>
-           <td>${i.title}</td>
-           <td>${i.content}</td>
-           <td>${i.comment}</td>
-           <td>${i.like}</td>
-           <td>
-              <input type="button" value="删除" data-id="${i.title}" class="del_data">
-              <input type="button" value="修改" data-id="${i.title}" class="update_data">
-           </td>
-     </tr> 
+        $("#showNotice").append(`
+        <li class="pic">
+        <div class="img-box">
+        <h3>${i.content}</h3>
+         </div>
+         <h2>${i.title}</h3>
+ </li>
            `);
-  }
-}
-})
-
-$("#out").click(function(){
-    $.ajax({
-		type:"POST",
-        url:"/talk/out",
-        success:function(data){
-            if(data.status ==1){
-           window.location.href="/add_content";
-            }
+        }
      }
-   })
+  })
+
+//查询按钮
+$("#sub_find").click(function(){
+$.ajax({
+  type:"POST",
+  url:"/talk/find",
+  data:{"data":$("#find").val()},
+  success:function(data){
+   $("#showNotice").empty();
+   for( var i of data.list){
+      $("#showNotice").append(`
+      <li class="pic">
+      <div class="img-box">
+      <h3>${i.content}</h3>
+       </div>
+       <h2>${i.title}</h3>
+</li>
+          `)
+      }
+    }
+  })
 })
