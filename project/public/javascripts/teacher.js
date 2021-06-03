@@ -34,9 +34,9 @@ $("#sub_find").click(function(){
          </li>
               `)
           }
-        }
-      })
+       }
     })
+})
     
 //分页
 $(".tcdPageCode").createPage({

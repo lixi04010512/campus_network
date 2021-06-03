@@ -1,4 +1,5 @@
 //师资队伍管理
+function load(){
 $.ajax({
       type:"GET",
       url:"/Mteacher/teachers",
@@ -16,19 +17,30 @@ $.ajax({
              `).join("");
     }
  })
+}
+load();
 
  //新增按钮
+//  class FormData{
+//   constructor(file,teacher_name){
+//       this.file=file;
+//       this.teacher_name=teacher_name;
+//   }
+// }
 $('#teachersAdd').click(function(){
-    $.ajax({
-        type:"POST",
-        url:"/Mteacher",
-        data:{"teacher_name":$("#teacher_name").val()},
-        success:function(data){
-          if(data.status==1){
-            window.location.href="/Mteacher"
-          }
-      }
-   })
+   //图片上传
+    //  let formData = new FormData();
+    //  formData.append("file",$('#file')[0].files[0]);
+    //  formData.append("teacher_name",$('#teacher_name').val());
+    //  console.log(formData);
+      $.ajax({
+              type:"POST",
+              url:"/Mteacher",
+              data:{"file":$('#file')[0].files[0],"teacher_name":$('#teacher_name').val()},
+              success:function(data){
+                  load();
+            }
+      })
 })
   
 //删除按钮
@@ -38,7 +50,9 @@ $('#teachersAdd').click(function(){
         url:"/Mteacher/del",
         data:{"name":$(this).data("id")},
         success:function(data){
-            window.location.href="/Mteachers"
+            if(data.status==1){
+              load();
+            }
     }
   })
 })

@@ -1,6 +1,7 @@
 var express = require('express');
 var formidable = require("formidable");
 var connection =require('./database.js');
+// var FormData =require('./bean/formData');
 var fs =require('fs');
 var path=require('path');
 var router = express.Router();
@@ -10,7 +11,7 @@ router.get('/', function(req, res, next) {
   res.render('Mteacher');
 });
 
-//增加师资队伍中老师的信息
+//增加师资队伍中老师的信息(图片，姓名)
 router.post("/",(req,res) => {
 	var form = formidable({
 		multiples: true,
@@ -18,28 +19,33 @@ router.post("/",(req,res) => {
 	})
 	form.parse(req, (err, fields, files) => {
 	   if(!files){
-           
+           console.log("没有图片！")
 	   }else{
-           let name_image=path.extname(files.img.name);
-		   
+
+		// let name_image=path.extname(files.img.file);
+		// console.log(name_image);
+		let teacher_name=req.body.formData.teacher_name;
+		console.log(teacher_name);
+
+		let newname=path.join(__dirname,"../public/images",Date.now()+path.extname(files.img.name))
+           
 		   fs.rename(
 			   files.img.path,
-			   path.join(__dirname,'../public/images'+name_image),
+			   path.join(__dirname,'../public/images'+newname),
 			   (err)=>{console.log(err)}
 		   )
-			var query = 'insert into tab_teachers (teacher_name,teacher_image) values ("'+teahcer_name+'","/public/images/'+name_image+'") '
-               
+			var query = 'insert into tab_teachers (teacher_name,teacher_image) values ("'+teacher_name+'","/images/'+name_image+'") '       
 			connection.query(query,(err,results,fields)=> {
 			if(err){
 			  console.log(err);
 			  return;
 			}else{
 				res.json({"status":1})
-			}
-		})
-	}
-		})
+			 }
+		  })
+	    }
 	})
+})
 
 
 
@@ -64,6 +70,7 @@ router.post('/del',(req,res)=>{
 		console.log(err);
 		return;
 	  }
+	  res.json({"status":1});
 	})
   })
 
