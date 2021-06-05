@@ -12,7 +12,7 @@ $.ajax({
                 </div>
                 <h3>${i.teacher_name}</h3>
         </li>
-       `);
+       `).join("");
     }
 })
 
@@ -24,17 +24,15 @@ $("#sub_find").click(function(){
       data:{"data":$("#find").val()},
       success:function(data){
        $("#showTeachers").empty();
-       for( var i of data.list){
-          $("#showTeachers").append(`
-          <li class="pic">
-          <div class="img-box">
-          <img src="${i.teacher_image}">
-          </div>
-          <h3>${i.teacher_name}</h3>
-         </li>
-              `)
+       document.getElementById("showTeachers").innerHTML = data.list.map(i =>`
+       <li class="pic">
+            	<div class="img-box">
+                <img src="${i.teacher_image}">
+                </div>
+                <h3>${i.teacher_name}</h3>
+        </li>
+              `).join("");
           }
-       }
     })
 })
     

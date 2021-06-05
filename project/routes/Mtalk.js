@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 router.post('/',(req,res) =>{
   let title=req.body.title;
   let content=req.body.content;
-  var query = 'insert tab_notice(title,content) values("'+title+'","'+content+'")'
+  var query = 'insert tab_notice(title,content,love) values("'+title+'","'+content+'","0")'
   connection.query(query, (err,results,fields)=> {
     if(err){
       console.log(err);
@@ -36,7 +36,7 @@ router.post('/',(req,res) =>{
 //查询
 router.post('/find',(req,res)=>{
   let data=req.body.data;
-  var query = "select title,content from tab_notice where title like '%"+data+"%' or content like'%"+data+"%' ";
+  var query = "select title,content,love from tab_notice where title like '%"+data+"%' or content like'%"+data+"%' or love like'%"+data+"%' ";
   connection.query(query,(err,results,fields)=>{
     if(err){
       console.log(err);

@@ -1,11 +1,8 @@
 var express = require('express');
 var formidable = require("formidable");
 var connection =require('./database.js');
-// var FormData =require('./bean/formData');
-var fs =require('fs');
 var path=require('path');
 var router = express.Router();
-
 
 router.get('/', function(req, res, next) {
   res.render('Mteacher');
@@ -15,32 +12,25 @@ router.get('/', function(req, res, next) {
 router.post("/",(req,res) => {
 	var form = formidable({
 		multiples: true,
-        uploadDir: path.join(__dirname,"../public/images")
-	})
+        uploadDir: path.join(__dirname,"/images"),
+		keepExtensions:true
+	});
 	form.parse(req, (err, fields, files) => {
-	   if(!files){
-           console.log("没有图片！")
-	   }else{
-
-		// let name_image=path.extname(files.img.file);
-		// console.log(name_image);
-		let teacher_name=req.body.formData.teacher_name;
-		console.log(teacher_name);
-
-		let newname=path.join(__dirname,"../public/images",Date.now()+path.extname(files.img.name))
-           
-		   fs.rename(
-			   files.img.path,
-			   path.join(__dirname,'../public/images'+newname),
-			   (err)=>{console.log(err)}
-		   )
-			var query = 'insert into tab_teachers (teacher_name,teacher_image) values ("'+teacher_name+'","/images/'+name_image+'") '       
+		if (!files) {
+           console.log("no");
+		   return;
+        }else{
+            let teacher_name=req.body.teacher_name;
+			let img=req.body.img;
+			newname=img;
+			console.log(img);
+			var query = 'insert into tab_teachers (teacher_name,teacher_image) values ("'+teacher_name+'","/images/'+img+'") '       
 			connection.query(query,(err,results,fields)=> {
 			if(err){
 			  console.log(err);
 			  return;
 			}else{
-				res.json({"status":1})
+				res.json({"status":1});
 			 }
 		  })
 	    }
@@ -72,7 +62,7 @@ router.post('/del',(req,res)=>{
 	  }
 	  res.json({"status":1});
 	})
-  })
+})
 
   //修改
   var arr=new Array();
@@ -87,7 +77,7 @@ router.post('/del',(req,res)=>{
 	   arr=results;
 	   res.json({"data":1})
    })
-  })
+})
 
 //修改页面师资队伍中老师页面模板字符串
 router.get('/sub1',(req,res) =>{
@@ -98,14 +88,14 @@ router.get('/sub1',(req,res) =>{
 router.post('/sub',(req,res)=>{
 	let teacher_name1=req.body.teacher_name1;
 	let teacher_image1=req.body.teacher_image1;
-	var query="update tab_teachers set teacher_name='"+teacher_name1+"',teacher_image='"+teacher_image1+"' where teacher_name='"+arr[0].teahcer_name+"'  ";
+	var query="update tab_teachers set teacher_name='"+teacher_name1+"',teacher_image='/images/"+teacher_image1+"' where teacher_name='"+arr[0].teahcer_name+"'  ";
 	connection.query(query,(err,results,fields) =>{
 	  if(err){
 	   console.log(err);
 	   return;
 	 }
 	res.json({"data":1});
- })
+  })
 })
 
 module.exports = router;
