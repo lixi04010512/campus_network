@@ -35,8 +35,6 @@ router.post("/",(req,res) => {
 	})
 })
 
-
-
 //从数据库取值
 router.get('/teachers',(req,res) =>{
 	var query = "select teacher_image,teacher_name from tab_teachers ";
@@ -62,7 +60,7 @@ router.post('/del',(req,res)=>{
 	})
 })
 
-  //修改
+//修改
   var arr=new Array();
   router.post('/update',(req,res) =>{
 	let name=req.body.name;
@@ -82,23 +80,11 @@ router.get('/sub1',(req,res) =>{
 	res.json({"data":arr});
 })
 
-//修改姓名页面提交按钮
+//修改页面提交按钮
 router.post('/sub',(req,res)=>{
 	let teacher_name1=req.body.teacher_name1;
-	var query="update tab_teachers set teacher_name='"+teacher_name1+"' where teacher_name='"+arr[0].teacher_name+"'  ";
-	connection.query(query,(err,results,fields) =>{
-	  if(err){
-	   console.log(err);
-	   return;
-	 }
-	res.json({"data":1});
-  })
-})
-
-//修改照片按钮
-router.post('/update_photo',(req,res)=>{
-	let teacher_image1=req.body.update_photo;
-	var query="update tab_teachers set teacher_image='/images/"+teacher_image1+"' where teacher_name='"+arr[0].teacher_name+"'  ";
+	let teacher_image1=req.body.teacher_image1;
+	var query="update tab_teachers set teacher_name='"+teacher_name1+"',teacher_image='images/"+teacher_image1+"' where teacher_name='"+arr[0].teacher_name+"'  ";
 	connection.query(query,(err,results,fields) =>{
 	  if(err){
 	   console.log(err);

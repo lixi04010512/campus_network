@@ -17,7 +17,6 @@ var updateRouter=require('./routes/update');
 var update_teachersRouter=require('./routes/update_teachers');
 var update_detailRouter=require('./routes/update_detail');
 var update_talkRouter=require('./routes/update_talk');
-var update_photoRouter=require('./routes/update_photo');
 
 var register1Router=require('./routes/register1');
 var login1Router=require('./routes/login1');
@@ -54,7 +53,6 @@ app.use('/update',updateRouter);
 app.use('/update_teachers',update_teachersRouter);
 app.use('/update_detail',update_detailRouter);
 app.use('/update_talk',update_talkRouter);
-app.use('/update_photo',update_photoRouter);
 
 app.use('/login1',login1Router);
 app.use('/register1',register1Router);
