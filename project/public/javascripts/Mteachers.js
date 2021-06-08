@@ -11,11 +11,12 @@ $.ajax({
              <td><img src="${i.teacher_image}" style="width:200px;height:100px"></td>
              <td>
                 <input type="button" value="删除" data-id="${i.teacher_name}" class="del_data">
-                <input type="button" value="修改" data-id="${i.teacher_name}" class="update_data">
-             </td>
+                <input type="button" value="修改姓名" data-id="${i.teacher_name}" class="update_data">
+                <input type="button" value="修改照片" class="update_photo">
+                </td>
        </tr> 
              `).join("");
-     }
+      }
   })
 }
 load();
@@ -51,7 +52,7 @@ $("#teachersAdd").click(function(){
    })
 })
   
-//修改按钮
+//修改姓名按钮
   $("#Teachers").delegate(".update_data","click",function(){
    $.ajax({
         type:"POST",
@@ -62,5 +63,18 @@ $("#teachersAdd").click(function(){
                 window.location.href="/update_teachers";
             }
       }
+   })
+})
+
+//修改照片按钮
+$("#Teachers").delegate(".update_photo","click",function(){
+   $.ajax({
+        type:"POST",
+        url:"/Mteacher/update_photo",
+        success:function(data){
+            if(data.status==1){
+               window.location.href="/update_photo";
+            }
+       }
    })
 })
