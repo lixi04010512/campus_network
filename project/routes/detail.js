@@ -6,11 +6,11 @@ var arr =new Array();
 
 router.get('/', function(req, res, next) {
   res.render('detail');
-});
+})
 
 router.post('/',(req,res) =>{
     res.json({"status":1});
-});
+})
 
 router.post('/search',(req,res)=>{
   var query = "select title,detail from tab_detail";
@@ -18,7 +18,7 @@ router.post('/search',(req,res)=>{
       arr=results;
       res.json({list:arr});
     })
-  })
+})
 
 //查询
 router.post('/find',(req,res)=>{

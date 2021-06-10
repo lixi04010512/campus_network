@@ -7,7 +7,7 @@ var email = require('./email_manage.js');
 
 router.get('/', function(req, res, next) {
   res.render('register1');
-});
+})
 
 //获取前端的参数,存入数据库
 router.post('/',(req,res) =>{
@@ -19,30 +19,30 @@ router.post('/',(req,res) =>{
   var query = 'insert tab_manage(name,password,email) values("'+user.use_name+'","'+user.use_password+'","'+use_email+'")'
   connection.query(query, (err,results,fields)=> {
     res.json({"status":1});
-      })
-   })
+    })
+})
 
-   function MathRand(){
+//随机数生成验证码
+function MathRand(){
     var Num="";
     for(var i=0;i<6;i++){
        Num+=Math.floor(Math.random()*10);
       }
       return  Num;
- }
+}
 
+//发送验证码
 let random=null;
-
 router.post('/random',(req,res)=>{
-let use_email=req.body.use_email;
-random=MathRand();
-email.send(use_email, random)
-.then(() => {
+   let use_email=req.body.use_email;
+   random=MathRand();
+   email.send(use_email, random)
+  .then(() => {
     res.json({"status":1,"random":random});
-})
-.catch(() => {
+  })
+  .catch(() => {
     res.json({"status":-1});
   })
 })  
-
 
 module.exports = router;

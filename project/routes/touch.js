@@ -3,6 +3,10 @@ var connection =require('./database.js');
 var router = express.Router();
 var arr =new Array();
 
+router.get('/', function(req, res, next) {
+  res.render('touch');
+});
+
 router.post('/',(req,res)=>{
   var query = "select name,phone,major,teach_year from tab_teacher";
   
@@ -10,11 +14,7 @@ router.post('/',(req,res)=>{
       arr=results;
       res.json({list:arr});
     })
-  })
-
-router.get('/', function(req, res, next) {
-  res.render('touch');
-});
+})
 
 //查询
 router.post('/find',(req,res)=>{

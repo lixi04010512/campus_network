@@ -5,7 +5,7 @@ var arr =new Array();
 
 router.get('/', function(req, res, next) {
   res.render('teacher');
-});
+})
 
 router.post('/',(req,res)=>{
   var query = "select teacher_name,teacher_image from tab_teachers";
@@ -13,7 +13,7 @@ router.post('/',(req,res)=>{
       arr=results;
       res.json({list:arr});
     })
-  })
+})
 
 //查询
 router.post('/find',(req,res)=>{

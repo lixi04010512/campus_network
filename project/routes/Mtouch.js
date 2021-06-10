@@ -5,7 +5,7 @@ var router = express.Router();
 
 router.get('/', function(req, res, next) {
   res.render('Mtouch');
-});
+})
 
 //新增联系老师
 router.post('/',(req,res) =>{
@@ -21,7 +21,7 @@ router.post('/',(req,res) =>{
       }
       res.json({"add":1});
     })
-  })
+})
 
 //从数据库取值
     router.get('/teachers',(req,res) =>{
@@ -32,8 +32,8 @@ router.post('/',(req,res) =>{
           return;
         }
         res.json({listTeacher:results});
-      })
-  })
+    })
+})
 
   //查询
   router.post('/find',(req,res)=>{
@@ -46,7 +46,7 @@ router.post('/',(req,res) =>{
       }
       res.json({list:results});
     })
-  })
+})
 //删除
     router.post('/del',(req,res)=>{
       let name=req.body.name;
@@ -58,10 +58,10 @@ router.post('/',(req,res) =>{
         }
         res.json({"del":1});
       })
-  })
+})
     
 //修改
-   var arr=new Array();
+    var arr=new Array();
     router.post('/update',(req,res) =>{
       let name=req.body.name;
       var query="select * from tab_teacher where name='"+name+"' ";
@@ -73,12 +73,12 @@ router.post('/',(req,res) =>{
          arr=results;
          res.json({"data":1})
      })
-  })
+})
 
 //修改联系老师页面模板字符串
     router.get('/sub1',(req,res) =>{
       res.json({"data":arr});
-  })
+})
 
 //修改页面提交按钮
     router.post('/sub',(req,res)=>{
@@ -94,6 +94,6 @@ router.post('/',(req,res) =>{
        }
       res.json({"data":1});
    })
- })
+})
 
 module.exports = router;

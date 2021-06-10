@@ -1,4 +1,4 @@
-	//鼠标移开姓名框开始验证
+//鼠标移开姓名框开始验证
 	$("#use_name").blur(function () {
 		var use_name = $("#use_name").val();
 		//姓名验证
@@ -9,13 +9,12 @@
 			$("#p_name").html("<font color=\"green\" size=\"2\">姓名格式正确！</font>");
 		}
 	})
-
-	//鼠标放置姓名框不验证
+//鼠标放置姓名框不验证
 	$("#use_name").focus(function(){
 		$("#p_name").html("");
 	  })
 
-	//鼠标移开邮箱框开始验证
+//鼠标移开邮箱框开始验证
 	$("#use_email").blur(function () {
 		var use_email = $("#use_email").val();
 		//邮箱验证
@@ -26,12 +25,12 @@
 			$("#p_email").html("<font color=\"green\" size=\"2\">邮箱格式正确！</font>");
 		}
 	})
-	//鼠标放置姓名框不验证
+//鼠标放置姓名框不验证
 	$("#use_email").focus(function(){
 		$("#p_email").html("");
 	  })
 
-	//鼠标移开验证码框开始验证
+//鼠标移开验证码框开始验证
 	$("#use_random").blur(function () {
 		var use_random = $("#use_random").val();
 		//验证码验证
@@ -42,12 +41,12 @@
 		}
 	})
 
-	//鼠标放置验证码框不验证
+//鼠标放置验证码框不验证
 	$("#use_random").focus(function(){
 		$("#p_random").html("");
 	  })
 
-	//鼠标移开密码框开始验证
+//鼠标移开密码框开始验证
 	$("#use_password").blur(function () {
 		var password = $("#use_password").val();
 		//密码验证
@@ -59,12 +58,12 @@
 		}
 	})
 
-	//鼠标放置密码框不验证
+//鼠标放置密码框不验证
 	$("#use_password").focus(function(){
 		$("#p_password").html("");
 	  })
 
-	//鼠标移开确认密码框开始验证
+//鼠标移开确认密码框开始验证
 	$("#use_password1").blur(function () {
 		var password1 = $("#use_password").val();
 		var password2 = $("#use_password1").val();
@@ -76,13 +75,12 @@
 		}
 	})
 
-	//鼠标放置确认密码框不验证
+//鼠标放置确认密码框不验证
 	$("#use_password1").focus(function(){
 		$("#p_password1").html("");
 	  })
-		
-	  let number=null;
 
+//注册确认按钮	  
 $("#yes").click(function(){
 	$.ajax({
 		type:"POST",
@@ -95,10 +93,12 @@ $("#yes").click(function(){
 		 }else{
 			 alert("注册失败！");
 		 }
-		}
-	})
+	  }
+   })
 })
 
+//邮箱发送按钮
+    let number=null;
     $("#deliver").click(function(){
 	  $.ajax({
 		  type:"POST",
@@ -112,6 +112,6 @@ $("#yes").click(function(){
 			  }else{
 				  alert("发送失败！");
 			  }
-		  }
-	  })
+		}
 	})
+})

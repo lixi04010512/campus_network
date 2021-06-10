@@ -1,4 +1,4 @@
-//修改师资队伍中老师信息js
+//修改师资队伍中老师信息
 $.ajax({
     type:"GET",
     url:"/Mteacher/sub1",
@@ -14,6 +14,7 @@ $.ajax({
     )}
 })
 
+//修改后的提交按钮
     $('#sub').click(function(){
         var str=$(".teacher_image1").val();
            var arr=str.split('\\');

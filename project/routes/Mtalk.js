@@ -5,7 +5,7 @@ var router = express.Router();
 
 router.get('/', function(req, res, next) {
    res.render('Mtalk');
-});
+})
 
 //新增公告通知
 router.post('/',(req,res) =>{
@@ -90,7 +90,7 @@ router.post('/find',(req,res)=>{
        return;
      }
     res.json({"data":1});
- })
+  })
 })
 
 

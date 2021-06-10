@@ -6,34 +6,28 @@ var router = express.Router();
 
 router.get('/', function(req, res, next) {
   res.render('Mteacher');
-});
+})
 
 //增加师资队伍中老师的信息(图片，姓名)
 router.post("/",(req,res) => {
 	var form = formidable({
 		multiples: true,
-        uploadDir: path.join(__dirname,"/images"),
-		keepExtensions:true
+        uploadDir: path.join(__dirname,"../public/images")
 	});
 	form.parse(req, (err, fields, files) => {
 		if (!files) {
-           console.log("no");
-		   return;
-        }else{
-            let teacher_name=req.body.teacher_name;
-			let img=req.body.img;
-			var query = 'insert into tab_teachers (teacher_name,teacher_image) values ("'+teacher_name+'","/images/'+img+'") '       
-			connection.query(query,(err,results,fields)=> {
-			if(err){
-			  console.log(err);
-			  return;
-			}else{
-				res.json({"status":1});
-			 }
-		  })
-	    }
+			console.log("no");
+			return;
+		 }else{
+			 let img=req.body.img;
+			 let teacher_name=req.body.teacher_name;
+			 var query='insert into tab_teachers(teacher_image,teacher_name) values("images/'+img+'","'+teacher_name+'")'
+			 connection.query(query,(err,results,fields)=>{
+				 res.json({"status":1})
+			 })
+		 }
 	})
-})
+})		    
 
 //从数据库取值
 router.get('/teachers',(req,res) =>{

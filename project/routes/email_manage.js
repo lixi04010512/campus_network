@@ -9,7 +9,7 @@ let transporter = nodemailer.createTransport({
         user: '1784420499@qq.com', // 发送方的邮箱地址（自己的）
         pass: 'vuhzelmmdpjgedjf' // mtp 验证码
     }
-});
+})
 
 function send(use_email, code) {
     let mailObj = {

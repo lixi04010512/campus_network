@@ -6,7 +6,7 @@ var router = express.Router();
 
 router.get('/', function(req, res, next) {
   res.render('Mnotice');
-});
+})
 
 router.post('/',(req,res) =>{
   let notice=req.body.notice;

@@ -22,7 +22,7 @@ load();
 
 //新增按钮
 $("#teachersAdd").click(function(){
-       var str=$("#img").val();
+  var str=$("#img").val();
        var arr=str.split('\\');
        var my=arr[arr.length-1];
       $.ajax({
