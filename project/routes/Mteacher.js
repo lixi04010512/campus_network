@@ -19,9 +19,9 @@ router.post("/",(req,res) => {
 			console.log("no");
 			return;
 		 }else{
-			 let img=req.body.img;
+			 let teacher_img=req.body.img;
 			 let teacher_name=req.body.teacher_name;
-			 var query='insert into tab_teachers(teacher_image,teacher_name) values("images/'+img+'","'+teacher_name+'")'
+			 var query='insert into tab_teachers(teacher_image,teacher_name) values("images/'+teacher_img+'","'+teacher_name+'")'
 			 connection.query(query,(err,results,fields)=>{
 				 res.json({"status":1})
 			 })
@@ -55,8 +55,8 @@ router.post('/del',(req,res)=>{
 })
 
 //修改
-  var arr=new Array();
-  router.post('/update',(req,res) =>{
+var arr=new Array();
+router.post('/update',(req,res) =>{
 	let name=req.body.name;
 	var query="select * from tab_teachers where teacher_name='"+name+"' ";
 	connection.query(query,(err,results,fields) =>{

@@ -8,9 +8,8 @@ router.get('/', function(req, res, next) {
 });
 
 //展示值在页面
- router.get('/discuss',(req,res) =>{
+router.get('/discuss',(req,res) =>{
   var query = "select * from tab_notice ";
-  
   connection.query(query,(err,results,fields)=>{
     res.json({list:results});
   })
@@ -19,11 +18,10 @@ router.get('/', function(req, res, next) {
 //取消点赞后展示在页面的值
 router.get('/load_dis',(req,res) =>{
   var query = "select * from tab_notice ";
-  
   connection.query(query,(err,results,fields)=>{
     res.json({list:results});
   })
-}) 
+})
 
 //查询
 router.post('/find',(req,res)=>{

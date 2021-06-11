@@ -2,7 +2,6 @@ var express = require('express');
 var connection =require('./database.js');
 var router = express.Router();
 
-
 router.get('/', function(req, res, next) {
    res.render('Mtalk');
 })
@@ -22,7 +21,7 @@ router.post('/',(req,res) =>{
 })
 
 //从数据库取值
-   router.get('/discuss',(req,res) =>{
+router.get('/discuss',(req,res) =>{
     var query = "select * from tab_notice ";
     connection.query(query,(err,results,fields)=>{
       if(err){
@@ -47,7 +46,7 @@ router.post('/find',(req,res)=>{
 })
 
 //删除
-  router.post('/del',(req,res)=>{
+router.post('/del',(req,res)=>{
     let title=req.body.title;
     var query="delete from tab_notice where title='"+title+"' ";
     connection.query(query,(err,results,fields)=>{
@@ -60,8 +59,8 @@ router.post('/find',(req,res)=>{
   })
   
 //修改
- var arr=new Array();
-  router.post('/update',(req,res) =>{
+var arr=new Array();
+router.post('/update',(req,res) =>{
     let title=req.body.title;
     var query="select * from tab_notice where title='"+title+"' ";
     connection.query(query,(err,results,fields) =>{
@@ -75,12 +74,12 @@ router.post('/find',(req,res)=>{
 })
 
 //修改联系老师页面模板字符串
-  router.get('/sub1',(req,res) =>{
+router.get('/sub1',(req,res) =>{
     res.json({"data":arr});
 })
 
 //修改页面提交按钮
-  router.post('/sub',(req,res)=>{
+router.post('/sub',(req,res)=>{
     let title1=req.body.title1;
     let content1=req.body.content1;
     var query="update tab_notice set title='"+title1+"',content='"+content1+"' where title='"+arr[0].title+"'  ";

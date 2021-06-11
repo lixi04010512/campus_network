@@ -1,8 +1,7 @@
 //鼠标移开姓名框开始验证
-	$("#use_name").blur(function () {
+	$("#use_name").blur(function(){	
 		var use_name = $("#use_name").val();
-		//姓名验证
-		var Username = /^[a-zA-Z\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/;
+        var Username = /^[a-zA-Z\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/;
 		if (!Username.test(use_name)) {
 			$("#p_name").html("<font color=\"red\" size=\"2\">姓名格式填写错误！</font>");
 		} else {
@@ -15,10 +14,9 @@
 	  })
 
 //鼠标移开邮箱框开始验证
-	$("#use_email").blur(function () {
+	$("#use_email").blur(function(){
 		var use_email = $("#use_email").val();
-		//邮箱验证
-		var Useremail = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+        var Useremail = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
 		if (!Useremail.test(use_email)) {
 			$("#p_email").html("<font color=\"red\" size=\"2\">邮箱格式填写错误！</font>");
 		} else {
@@ -32,8 +30,7 @@
 
 //鼠标移开验证码框开始验证
 	$("#use_random").blur(function () {
-		var use_random = $("#use_random").val();
-		//验证码验证
+        var use_random = $("#use_random").val();
 		if (number!=use_random) {
 			$("#p_random").html("<font color=\"red\" size=\"2\">验证码输入错误！</font>");
 		} else {
@@ -48,9 +45,8 @@
 
 //鼠标移开密码框开始验证
 	$("#use_password").blur(function () {
-		var password = $("#use_password").val();
-		//密码验证
-		var Password=/^(\w){6,20}$/;
+        var password = $("#use_password").val();
+        var Password=/^(\w){6,20}$/;
 		if (!Password.test(password)) {
 			$("#p_password").html("<font color=\"red\" size=\"2\">密码格式填写错误！</font>");
 		} else {
@@ -65,9 +61,8 @@
 
 //鼠标移开确认密码框开始验证
 	$("#use_password1").blur(function () {
-		var password1 = $("#use_password").val();
-		var password2 = $("#use_password1").val();
-		//确认密码验证
+        var password1 = $("#use_password").val();
+        var password2 = $("#use_password1").val();
 		if (password1==password2) {
 			$("#p_password1").html("<font color=\"green\" size=\"2\">两次密码一致！</font>");
 		} else {
@@ -82,19 +77,40 @@
 
 //注册确认按钮	  
 $("#yes").click(function(){
-	$.ajax({
-		type:"POST",
-		url:"/register",
-		data:{"use_name":$("#use_name").val(),"use_password":$("#use_password").val(),"use_email":$("#use_email").val()},
-		success:function(data){
-			if(data.status==1){
-			alert("注册成功!");
-			window.location.href="/login";
-		 }else{
-			 alert("注册失败！");
-		 }
-	  }
-   })
+	var use_name = $("#use_name").val();
+    var Username = /^[a-zA-Z\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/;
+	var use_email = $("#use_email").val();
+    var Useremail = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+	var use_random = $("#use_random").val();
+	var password = $("#use_password").val();
+	var Password=/^(\w){6,20}$/;
+	var password1 = $("#use_password").val();
+    var password2 = $("#use_password1").val();
+	if(!Username.test(use_name)){
+        alert("姓名输入格式错误！")
+	}else if(!Useremail.test(use_email)){
+        alert("邮箱输入格式错误!")
+	}else if(number!=use_random){
+        alert("验证码输入错误！")
+	}else if(!Password.test(password)){
+        alert("密码输入格式错误！")
+	}else if(password1!=password2){
+        alert("两次密码输入不一致！")
+	}else{
+        $.ajax({
+			type:"POST",
+			url:"/register",
+			data:{"use_name":$("#use_name").val(),"use_password":$("#use_password").val(),"use_email":$("#use_email").val()},
+			success:function(data){
+				if(data.status==1){
+				alert("用户注册成功!");
+				window.location.href="/login";
+			 }else{
+				 alert("用户注册失败！");
+			 }
+		  }
+		})
+	}
 })
 
 //邮箱发送按钮
@@ -107,7 +123,6 @@ $("#yes").click(function(){
 		  success:function(data){
               if(data.status ==1){
 				number=data.random;
-				console.log(number);
                   alert("发送成功！");
 			  }else{
 				  alert("发送失败！");
