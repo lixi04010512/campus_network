@@ -1,54 +1,60 @@
+//首页
 $('#first_page').click(function(){
 	$.ajax({
-		type:"post",
+		type:"POST",
         url:"/detail",
         success:function(){
            window.location.href="/first_page"
-     }
+      }
    })
 })
+//招生简章
 $('#center').click(function(){
 	$.ajax({
-		type:"post",
+		type:"POST",
         url:"/detail",
         success:function(){
            window.location.href="/detail"
-     }
+      }
    })
 })
+//师资队伍
 $('#teacher').click(function(){
 	$.ajax({
-		type:"post",
+		type:"POST",
         url:"/detail",
         success:function(){
            window.location.href="/teacher"
-     }
+      }
    })
 })
+//新闻中心
 $('#news').click(function(){
 	$.ajax({
-		type:"post",
+		type:"POST",
         url:"/detail",
         success:function(){
            window.location.href="/news"
-     }
+      }
    })
 })
+//联系教师
 $('#touch').click(function(){
 	$.ajax({
-		type:"post",
+		type:"POST",
         url:"/detail",
         success:function(){
            window.location.href="/touch"
-     }
+      }
    })
 })
+//公告通知
 $('#talk').click(function(){
 	$.ajax({
-		type:"post",
+		type:"POST",
         url:"/detail",
         success:function(){
            window.location.href="/talk"
-     }
+      }
    })
 })

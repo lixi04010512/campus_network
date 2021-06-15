@@ -13,7 +13,7 @@ router.post('/',(req,res) =>{
     let phone=req.body.phone;
     let major=req.body.major;
     let teach_year=req.body.teach_year;
-    var query = 'insert tab_teacher(name,phone,major,teach_year) values("'+name+'","'+phone+'","'+major+'","'+teach_year+'")'
+    var query = 'insert into tab_teacher(name,phone,major,teach_year) values("'+name+'","'+phone+'","'+major+'","'+teach_year+'")'
     connection.query(query, (err,results,fields)=> {
       if(err){
         console.log(err);

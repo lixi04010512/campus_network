@@ -7,7 +7,7 @@ var email = require('./email_account.js');
 
 
 router.get('/', function(req, res, next) {
-  res.render('register');
+    res.render('register');
 })
 
 //获取前端的参数,存入数据库
@@ -17,7 +17,7 @@ router.post('/',(req,res) =>{
   let use_password=md5(use_password1);
   let user=new User(use_name,use_password);
   let use_email=req.body.use_email;
-  var query = 'insert tab_account(name,password,email) values("'+user.use_name+'","'+user.use_password+'","'+use_email+'")'
+  var query = 'insert into tab_account(name,password,email) values("'+user.use_name+'","'+user.use_password+'","'+use_email+'")'
   connection.query(query, (err,results,fields)=> {
       res.json({"status":1})
       })
@@ -45,6 +45,5 @@ function MathRand(){
        res.json({"status":-1});
    })
 })  
-
 
 module.exports = router;

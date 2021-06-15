@@ -7,7 +7,7 @@ $('#yes').click(function(){
            if(data.status==1){
            window.location.href="/first_page"
 	}else{
-         alert("密码输入错误！！");
+         alert("输入错误！！");
 	    }
     }
   })

@@ -5,7 +5,7 @@ var router = express.Router();
 
 router.get('/', function(req, res, next) {
   res.render('talk');
-});
+})
 
 //展示值在页面
 router.get('/discuss',(req,res) =>{

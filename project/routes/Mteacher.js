@@ -23,6 +23,10 @@ router.post("/",(req,res) => {
 			 let teacher_name=req.body.teacher_name;
 			 var query='insert into tab_teachers(teacher_image,teacher_name) values("images/'+teacher_img+'","'+teacher_name+'")'
 			 connection.query(query,(err,results,fields)=>{
+				if(err){
+					console.log(err);
+					return;
+				  }
 				 res.json({"status":1})
 			 })
 		 }
@@ -86,6 +90,19 @@ router.post('/sub',(req,res)=>{
 	 }
 	res.json({"data":1});
   })
+})
+
+//查询
+router.post('/find',(req,res)=>{
+    let data=req.body.data;
+    var query = "select teacher_name,teacher_image from tab_teachers where teacher_name like '%"+data+"%' or teacher_image like'%"+data+"%' ";
+    connection.query(query,(err,results,fields)=>{
+      if(err){
+        console.log(err);
+        return;
+      }
+      res.json({list:results});
+    })
 })
 
 module.exports = router;

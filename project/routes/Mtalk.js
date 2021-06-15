@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 router.post('/',(req,res) =>{
   let title=req.body.title;
   let content=req.body.content;
-  var query = 'insert tab_notice(title,content,love) values("'+title+'","'+content+'","0")'
+  var query = 'insert into tab_notice(title,content,love) values("'+title+'","'+content+'","0")'
   connection.query(query, (err,results,fields)=> {
     if(err){
       console.log(err);
@@ -91,6 +91,5 @@ router.post('/sub',(req,res)=>{
     res.json({"data":1});
   })
 })
-
 
 module.exports = router;

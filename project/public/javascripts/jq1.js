@@ -63,7 +63,7 @@ $('#Mtouch').click(function(){
    })
 })
 
-//论坛
+//公告通知
 $('#Mtalk').click(function(){
 	$.ajax({
 		type:"POST",

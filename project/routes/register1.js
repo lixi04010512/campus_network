@@ -16,7 +16,7 @@ router.post('/',(req,res) =>{
   let use_password=md5(use_password1);
   let user=new User(use_name,use_password);
   let use_email=req.body.use_email;
-  var query = 'insert tab_manage(name,password,email) values("'+user.use_name+'","'+user.use_password+'","'+use_email+'")'
+  var query = 'insert into tab_manage(name,password,email) values("'+user.use_name+'","'+user.use_password+'","'+use_email+'")'
   connection.query(query, (err,results,fields)=> {
     res.json({"status":1});
     })

@@ -5,8 +5,9 @@ var md5 =require("md5");
 
 router.get('/', function(req, res, next) {
   res.render('login1');
-});
+})
 
+//获取前端参数，进行匹配
 router.post('/',(req,res)=>{
   let use_name=req.body.name;
   let use_password1=req.body.password;
@@ -21,6 +22,6 @@ router.post('/',(req,res)=>{
       res.json({"status":1});
     }
   })
-});
+})
 
 module.exports = router;

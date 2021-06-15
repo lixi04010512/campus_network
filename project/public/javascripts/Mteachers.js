@@ -64,3 +64,25 @@ $("#teachersAdd").click(function(){
       }
    })
 })
+
+//查询按钮
+$("#sub").click(function(){
+  $.ajax({
+    type:"POST",
+    url:"/Mteacher/find",
+    data:{"data":$("#search").val()},
+    success:function(data){
+     $("#Teachers").empty();
+     document.getElementById("Teachers").innerHTML = data.list.map(i =>`
+     <tr>
+             <td>${i.teacher_name}</td>
+             <td><img src="${i.teacher_image}" style="width:200px;height:100px"></td>
+             <td>
+                <input type="button" value="删除" data-id="${i.teacher_name}" class="del_data">
+                <input type="button" value="修改" data-id="${i.teacher_name}" class="update_data">
+                </td>
+       </tr> 
+             `).join("");
+        }
+  })
+})

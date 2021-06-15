@@ -1,13 +1,13 @@
 $('#yes').click(function(){
 	$.ajax({
-		type:"post",
+		type:"POST",
         url:"/login1",
         data:{"name":$("#use_name").val(),"password":$("#use_password").val()},
         success:function(data){
            if(data.status==1){
            window.location.href="/Mfirst"
 	}else{
-         alert("错误！！");
+         alert("输入错误！！");
 	    }
     }
   })

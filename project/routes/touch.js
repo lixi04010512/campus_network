@@ -5,11 +5,10 @@ var arr =new Array();
 
 router.get('/', function(req, res, next) {
   res.render('touch');
-});
+})
 
 router.post('/',(req,res)=>{
   var query = "select name,phone,major,teach_year from tab_teacher";
-  
   connection.query(query,(err,results,fields)=>{
       arr=results;
       res.json({list:arr});
