@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   res.render('Mteacher');
 })
 
-//增加师资队伍中老师的信息(图片，姓名)
+//增加师资队伍中老师的信息
 router.post("/",(req,res) => {
 	var form = formidable({
 		multiples: true,
@@ -19,15 +19,16 @@ router.post("/",(req,res) => {
 			console.log("no");
 			return;
 		 }else{
-			 let teacher_img=req.body.img;
+			 let teacher_ph=req.body.ph;
 			 let teacher_name=req.body.teacher_name;
-			 var query='insert into tab_teachers(teacher_image,teacher_name) values("images/'+teacher_img+'","'+teacher_name+'")'
+			 let newName='images/'+teacher_ph;
+			 var query='insert into tab_teachers(teacher_image,teacher_name) values("'+newName+'","'+teacher_name+'")'
 			 connection.query(query,(err,results,fields)=>{
 				if(err){
 					console.log(err);
 					return;
 				  }
-				 res.json({"status":1})
+				 res.json({"status":1});
 			 })
 		 }
 	})

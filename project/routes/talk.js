@@ -11,15 +11,7 @@ router.get('/', function(req, res, next) {
 router.get('/discuss',(req,res) =>{
   var query = "select * from tab_notice ";
   connection.query(query,(err,results,fields)=>{
-    res.json({list:results});
-  })
-})
-
-//取消点赞后展示在页面的值
-router.get('/load_dis',(req,res) =>{
-  var query = "select * from tab_notice ";
-  connection.query(query,(err,results,fields)=>{
-    res.json({list:results});
+     res.json({list:results});
   })
 })
 

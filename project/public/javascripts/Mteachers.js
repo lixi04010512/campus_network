@@ -22,21 +22,21 @@ load();
 
 //新增按钮
 $("#teachersAdd").click(function(){
-  var str=$("#img").val();
+       var str=$("#img").val();
        var arr=str.split('\\');
        var my=arr[arr.length-1];
       $.ajax({
            type:"POST",
            url:"/Mteacher",
-           data:{"img":my,"teacher_name":$('#teacher_name').val()},
+           data:{"ph":my,"teacher_name":$('#teacher_name').val()},
            success:function(data){
                 if(data.status==1){
-                   load();
+                   window.location.href="/Mteacher";
             }
          }
     })
 })
-  
+
 //删除按钮
   $("#Teachers").delegate(".del_data","click",function(){
    $.ajax({

@@ -34,8 +34,8 @@ $("#showNotice").delegate(".like","click",function(){
            url:"/talk/dislike",
            data:{"title":$(this).data("id")},
            success:function(data){
-                if(data.status==1){
-                load();
+               if(data.status==1){
+                  load();
             }
         }
     })
@@ -46,35 +46,12 @@ $("#showNotice").delegate(".like","click",function(){
            data:{"title":$(this).data("id")},
            success:function(data){
                if(data.status==1){
-                    load_dis();
+                    load();
                }
             }
          })
        }
    })
-
-//取消点赞方法
-function load_dis(){
-    $.ajax({
-        type:"GET",
-        url:"/talk/load_dis",
-        success:function(data){
-         $("#showNotice").empty();
-         for( var i of data.list){
-            $("#showNotice").append(`
-            <li class="pic">
-            <div class="img-box">
-            <h3>${i.content}</h3>
-            <img src="/images/like.jpg" style="height:50px;width:50px" name="dislike" data-id="${i.title}" class="like">
-             </div>
-            <h2>${i.title}</h2>
-            <h2>点赞数：${i.love}</h2>
-            </li>
-               `)
-            }
-         }
-     })
-  }
 
 //查询按钮
 $("#sub_find").click(function(){
